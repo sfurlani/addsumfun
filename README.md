@@ -1,2 +1,2 @@
-# addsumfun
-Add Sum Fun - small app for exploring addition equations
+# Add Sum Fun 
+- small app for exploring addition equations
