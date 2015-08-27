@@ -19,20 +19,20 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add Sum Fun!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a62-89-3wW">
-                                <rect key="frame" x="16" y="36" width="568" height="65"/>
+                                <rect key="frame" x="16" y="108" width="568" height="65"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="54"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cBE-h5-LAC">
-                                <rect key="frame" x="16" y="278" width="568" height="44"/>
+                                <rect key="frame" x="16" y="240" width="568" height="120"/>
                                 <animations/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="44" id="UjN-iM-tF3"/>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="44" id="reQ-kE-viB"/>
+                                    <constraint firstAttribute="height" constant="120" id="UjN-iM-tF3"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="88"/>
+                                <inset key="contentEdgeInsets" minX="16" minY="0.0" maxX="16" maxY="0.0"/>
                                 <state key="normal" title="Play!"/>
                                 <connections>
                                     <segue destination="fDv-BX-lCo" kind="show" identifier="startGame" id="Pok-hu-cZd"/>
@@ -42,13 +42,14 @@
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="cBE-h5-LAC" firstAttribute="leading" secondItem="a62-89-3wW" secondAttribute="leading" id="5SK-5U-Ql0"/>
+                            <constraint firstItem="cBE-h5-LAC" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="a62-89-3wW" secondAttribute="leading" id="5SK-5U-Ql0"/>
                             <constraint firstItem="cBE-h5-LAC" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" priority="950" id="IH3-Fo-58E"/>
-                            <constraint firstItem="a62-89-3wW" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="16" id="QtO-BD-lUT"/>
+                            <constraint firstItem="a62-89-3wW" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="88" id="QtO-BD-lUT"/>
+                            <constraint firstItem="cBE-h5-LAC" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Vqd-M3-oZY"/>
                             <constraint firstAttribute="trailing" secondItem="a62-89-3wW" secondAttribute="trailing" constant="16" id="YqZ-6w-lEO"/>
                             <constraint firstItem="a62-89-3wW" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="16" id="dXX-dS-zWJ"/>
                             <constraint firstItem="cBE-h5-LAC" firstAttribute="top" relation="greaterThanOrEqual" secondItem="a62-89-3wW" secondAttribute="bottom" constant="32" id="fQt-vN-2Qg"/>
-                            <constraint firstItem="cBE-h5-LAC" firstAttribute="trailing" secondItem="a62-89-3wW" secondAttribute="trailing" id="zUJ-fE-CFL"/>
+                            <constraint firstItem="cBE-h5-LAC" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="a62-89-3wW" secondAttribute="trailing" id="zUJ-fE-CFL"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Iws-l8-18B"/>
@@ -105,7 +106,9 @@
                         </connections>
                     </view>
                     <connections>
+                        <outlet property="correctView" destination="uTk-YK-fay" id="4r6-MX-eZe"/>
                         <outlet property="equationContainer" destination="VFr-AV-qfh" id="Jkg-xc-DJr"/>
+                        <outlet property="incorrectView" destination="tEM-MD-iJZ" id="yt4-bP-0QF"/>
                         <outlet property="numberContainer" destination="L6h-cs-t1N" id="930-wF-g2k"/>
                         <outlet property="panGesture" destination="6y8-YY-VX8" id="0zp-yy-nWL"/>
                         <segue destination="Cjy-W4-Jsd" kind="show" identifier="showResults" id="X6y-no-gvb"/>
@@ -119,6 +122,18 @@
                         <action selector="panUpdate:" destination="fDv-BX-lCo" id="RRh-dG-cbZ"/>
                     </connections>
                 </panGestureRecognizer>
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="correct" id="uTk-YK-fay">
+                    <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <animations/>
+                    <color key="backgroundColor" red="0.29803922770000002" green="0.85098040100000005" blue="0.39215686919999998" alpha="0.50404676258992809" colorSpace="custom" customColorSpace="deviceRGB"/>
+                </imageView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="incorrect" id="tEM-MD-iJZ">
+                    <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <animations/>
+                    <color key="backgroundColor" red="1" green="0.23137255009999999" blue="0.18823529780000001" alpha="0.5" colorSpace="custom" customColorSpace="deviceRGB"/>
+                </imageView>
             </objects>
             <point key="canvasLocation" x="2334" y="478"/>
         </scene>
@@ -409,16 +424,19 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Lkx-OG-ZFN">
-                                <rect key="frame" x="0.0" y="278" width="600" height="44"/>
+                                <rect key="frame" x="16" y="278" width="568" height="44"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" ambiguous="YES" misplaced="YES" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="LyC-Fz-yNe" userLabel="augendRow">
-                                        <rect key="frame" x="0.0" y="0.0" width="267" height="44"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="LyC-Fz-yNe" userLabel="augendRow">
+                                        <rect key="frame" x="0.0" y="0.0" width="100" height="44"/>
                                         <animations/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="100" placeholder="YES" id="BGr-HW-EBo"/>
+                                        </constraints>
                                     </stackView>
-                                    <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Lmk-Gk-WiW" userLabel="plusSymbol" customClass="SymbolView" customModule="Add_Sum_Fun" customModuleProvider="target">
-                                        <rect key="frame" x="275" y="0.0" width="44" height="44"/>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Lmk-Gk-WiW" userLabel="plusSymbol" customClass="SymbolView" customModule="Add_Sum_Fun" customModuleProvider="target">
+                                        <rect key="frame" x="145" y="0.0" width="44" height="44"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="+" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hSo-kY-b41">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="+" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hSo-kY-b41">
                                                 <rect key="frame" x="0.0" y="0.0" width="44" height="44"/>
                                                 <animations/>
                                                 <constraints>
@@ -444,14 +462,17 @@
                                             <outlet property="label" destination="hSo-kY-b41" id="wNU-9A-1bY"/>
                                         </connections>
                                     </view>
-                                    <stackView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" ambiguous="YES" misplaced="YES" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="6LE-Q4-076" userLabel="addendRow">
-                                        <rect key="frame" x="327" y="0.0" width="117" height="44"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="6LE-Q4-076" userLabel="addendRow">
+                                        <rect key="frame" x="234" y="0.0" width="100" height="44"/>
                                         <animations/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="100" placeholder="YES" id="eUJ-fW-sF1"/>
+                                        </constraints>
                                     </stackView>
-                                    <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="L5q-rQ-5T0" userLabel="equalsSymbol" customClass="SymbolView" customModule="Add_Sum_Fun" customModuleProvider="target">
-                                        <rect key="frame" x="452" y="0.0" width="44" height="44"/>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="L5q-rQ-5T0" userLabel="equalsSymbol" customClass="SymbolView" customModule="Add_Sum_Fun" customModuleProvider="target">
+                                        <rect key="frame" x="379" y="0.0" width="44" height="44"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="=" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PPC-fv-8ZY">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="=" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PPC-fv-8ZY">
                                                 <rect key="frame" x="0.0" y="0.0" width="44" height="44"/>
                                                 <animations/>
                                                 <constraints>
@@ -477,9 +498,12 @@
                                             <outlet property="label" destination="PPC-fv-8ZY" id="yoS-c0-ota"/>
                                         </connections>
                                     </view>
-                                    <stackView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" ambiguous="YES" misplaced="YES" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="aCj-vV-0Dp" userLabel="sumRow">
-                                        <rect key="frame" x="504" y="0.0" width="96" height="44"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="aCj-vV-0Dp" userLabel="sumRow">
+                                        <rect key="frame" x="468" y="0.0" width="100" height="44"/>
                                         <animations/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="100" placeholder="YES" id="T68-dW-f7t"/>
+                                        </constraints>
                                     </stackView>
                                 </subviews>
                                 <animations/>
@@ -491,8 +515,8 @@
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="Lkx-OG-ZFN" secondAttribute="trailing" id="OSc-cl-M2l"/>
-                            <constraint firstItem="Lkx-OG-ZFN" firstAttribute="leading" secondItem="W7u-ss-nbJ" secondAttribute="leading" id="ZNk-mh-5xY"/>
+                            <constraint firstAttribute="trailing" secondItem="Lkx-OG-ZFN" secondAttribute="trailing" constant="16" id="OSc-cl-M2l"/>
+                            <constraint firstItem="Lkx-OG-ZFN" firstAttribute="leading" secondItem="W7u-ss-nbJ" secondAttribute="leading" constant="16" id="ZNk-mh-5xY"/>
                             <constraint firstItem="Lkx-OG-ZFN" firstAttribute="centerY" secondItem="W7u-ss-nbJ" secondAttribute="centerY" id="bAq-hc-YkP"/>
                         </constraints>
                     </view>
@@ -509,6 +533,7 @@
     </scenes>
     <resources>
         <image name="correct" width="30" height="30"/>
+        <image name="incorrect" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="yHz-j8-Eln"/>

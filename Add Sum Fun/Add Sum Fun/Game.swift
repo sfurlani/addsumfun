@@ -16,7 +16,7 @@ protocol GameType {
     var currentEquation: EquationType? { get }
     func score() -> CGFloat?
     mutating func addNewRound() -> ()
-    mutating func addNewAnswer(answer: UInt) -> ()
+    mutating func addNewAnswer(answer: UInt) -> AnswerType?
     
 }
 
@@ -64,12 +64,14 @@ class GameData : GameType {
         }
     }
     
-    func addNewAnswer(answer: UInt) {
+    func addNewAnswer(answer: UInt) -> AnswerType? {
         if let equation = currentEquation {
-            answers.append(Answer(entered:answer, equation: equation))
+            let answer = Answer(entered:answer, equation: equation)
+            answers.append(answer)
+            return answer
         }
         else {
-            
+            return nil
         }
     }
 }
