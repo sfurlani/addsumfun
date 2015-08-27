@@ -29,7 +29,7 @@ class HomeViewController: UIViewController {
         
         switch segue.destinationViewController {
         case let vc as PlayViewController:
-            vc.gameData = GameData(roundSize: 2)
+            vc.gameData = GameData()
         default:
             break
         }
