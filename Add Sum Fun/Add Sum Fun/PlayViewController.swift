@@ -82,6 +82,7 @@ class PlayViewController: UIViewController {
 
     @IBAction func unwindForNewGame(segue: UIStoryboardSegue) {
         gameData.addNewRound()
+        equationViewController?.view.hidden = true
         performSegueWithIdentifier(SegueIdentifiers.ShowVerticalEquation.rawValue, sender: nil)
         navigationController?.popViewControllerAnimated(true)
     }
@@ -89,7 +90,8 @@ class PlayViewController: UIViewController {
     func answerEquation(answer: UInt) {
         gameData.addNewAnswer(answer)
         if let _ = gameData?.currentEquation {
-            performSegueWithIdentifier(SegueIdentifiers.ShowVerticalEquation.rawValue, sender: nil)
+            let segue = gameData.answers.count % 2 == 0 ? SegueIdentifiers.ShowVerticalEquation.rawValue : SegueIdentifiers.ShowHorizontalEquation.rawValue
+            performSegueWithIdentifier(segue, sender: nil)
         }
         else {
             // TODO: Go to Results Screen

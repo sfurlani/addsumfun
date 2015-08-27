@@ -58,8 +58,8 @@ class GameData : GameType {
         answers = [AnswerType]()
     }
     
-    func addNewRound() -> () {
-        equations = equations + self.roundSize.repeatMap { (index: UInt) in
+    func addNewRound() {
+        equations = equations + roundSize.repeatMap { (index: UInt) in
             return Addition()
         }
     }

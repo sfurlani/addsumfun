@@ -50,12 +50,4 @@ class ResultsViewController: UITableViewController {
         return cell
     }
 
-    @IBAction func returnToMainMenu(sender: AnyObject) {
-        navigationController?.popToRootViewControllerAnimated(true)
-    }
-    
-    @IBAction func startNewGame(sender: AnyObject) {
-        gameData.addNewRound()
-    }
-
 }
