@@ -123,8 +123,8 @@
 		756668241B8E18F70030FA71 /* Add Sum Fun */ = {
 			isa = PBXGroup;
 			children = (
+				75F06E641B8EDA8100F154C4 /* Utility */,
 				75F06E5F1B8EB9B700F154C4 /* Segues */,
-				75F06E431B8E2E4200F154C4 /* Int+Extension.swift */,
 				75F06E4E1B8E476F00F154C4 /* ViewControllers */,
 				75F06E4B1B8E3ED800F154C4 /* Views */,
 				75F06E401B8E2DF600F154C4 /* Model */,
@@ -194,6 +194,14 @@
 				75F06E601B8EB9D900F154C4 /* ContainerTransitionSegue.swift */,
 			);
 			name = Segues;
+			sourceTree = "<group>";
+		};
+		75F06E641B8EDA8100F154C4 /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				75F06E431B8E2E4200F154C4 /* Int+Extension.swift */,
+			);
+			name = Utility;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
