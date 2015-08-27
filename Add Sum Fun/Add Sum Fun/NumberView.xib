@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="8187.4" systemVersion="15A263e" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8151.3"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="NumberView" customModule="Add_Sum_Fun" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="88" height="88"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xZE-5a-GCb">
+                    <rect key="frame" x="0.0" y="0.0" width="88" height="88"/>
+                    <animations/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="xZE-5a-GCb" secondAttribute="height" multiplier="1:1" priority="750" id="S3T-lf-s54"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="88"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <animations/>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="xZE-5a-GCb" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="7cR-Tb-YJu"/>
+                <constraint firstAttribute="bottom" secondItem="xZE-5a-GCb" secondAttribute="bottom" id="am2-kk-94h"/>
+                <constraint firstAttribute="trailing" secondItem="xZE-5a-GCb" secondAttribute="trailing" id="e17-TM-apa"/>
+                <constraint firstItem="xZE-5a-GCb" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="i8D-sm-diG"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <nil key="simulatedTopBarMetrics"/>
+            <nil key="simulatedBottomBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="label" destination="xZE-5a-GCb" id="wAe-2O-zcO"/>
+            </connections>
+        </view>
+    </objects>
+</document>
