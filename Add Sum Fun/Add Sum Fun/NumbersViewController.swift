@@ -19,7 +19,7 @@ class NumbersViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        let numberViews = (0...9).map { (index: Int) in NumberView.newWithNumber(index) }
+        let numberViews = (0...9).map { (index: UInt) in NumberView.newWithNumber(index) }
         
         for case let numberView? in numberViews {
             

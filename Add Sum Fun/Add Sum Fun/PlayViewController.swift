@@ -15,6 +15,7 @@ class PlayViewController: UIViewController {
         case EmbedEquation = "embedEquation"
         case ShowVerticalEquation = "showVertical"
         case ShowHorizontalEquation = "showHorizontal"
+        case ShowResults = "showResults"
     }
     
     @IBOutlet var equationContainer: UIView!
@@ -22,7 +23,10 @@ class PlayViewController: UIViewController {
     @IBOutlet var panGesture: UIPanGestureRecognizer!
     
     var numbersViewController: NumbersViewController!
-    var equationViewController: EquationViewController!
+    var equationViewController: EquationViewController? {
+        let filtered = childViewControllers.filter { ($0 as? EquationViewController) != nil ? true : false  }
+        return filtered.first as? EquationViewController
+    }
     
     var gameData: GameType!
     
@@ -41,8 +45,10 @@ class PlayViewController: UIViewController {
             self.numbersViewController = vc
             
         case let vc as EquationViewController:
-            self.equationViewController = vc
-            
+            vc.equation = gameData?.currentEquation
+            vc.delegate = self
+        case let vc as ResultsViewController:
+            vc.gameData = gameData
         default:
             break
         }
@@ -65,14 +71,39 @@ class PlayViewController: UIViewController {
             guard let panView = numbersViewController.panView, let number = panView.number else {
                 break gestureSwitch
             }
-            let switchValue = equationViewController.switchNumber(number, gesture: sender)
-            numbersViewController.endDraggingView(switchValue, gesture: sender)
+            let switchValue = equationViewController?.switchNumber(number, gesture: sender)
+            numbersViewController.endDraggingView(switchValue ?? false, gesture: sender)
             
         default:
             break gestureSwitch
         }
         
     }
+
+    @IBAction func unwindForNewGame(segue: UIStoryboardSegue) {
+        gameData.addNewRound()
+        performSegueWithIdentifier(SegueIdentifiers.ShowVerticalEquation.rawValue, sender: nil)
+        navigationController?.popViewControllerAnimated(true)
+    }
     
+    func answerEquation(answer: UInt) {
+        gameData.addNewAnswer(answer)
+        if let _ = gameData?.currentEquation {
+            performSegueWithIdentifier(SegueIdentifiers.ShowVerticalEquation.rawValue, sender: nil)
+        }
+        else {
+            // TODO: Go to Results Screen
+            performSegueWithIdentifier(SegueIdentifiers.ShowResults.rawValue, sender: nil)
+        }
+    }
+    
+}
+
+extension PlayViewController: EquationViewControllerDelegate {
+
+    func didEnterResult(result: UInt) {
+        print("Recieved: \(result)")
+        answerEquation(UInt(result))
+    }
     
 }

@@ -148,5 +148,32 @@ print(string)
 
 let noScore = game.score()
 
+private func pow(base: Int, exponent: Int) -> Int {
+    guard exponent > 0 else {
+        return 1
+    }
+    
+    return pow(base, exponent: exponent - 1) * 10
+}
+
+let hun = pow(10, exponent: 2)
+
+let mil = pow(10, exponent: 6)
+
+private func calculateResponse(entered: [Int?]) -> Int {
+    var tens = 0
+    var sum = 0
+    for place in entered.reverse() {
+        if let place = place {
+            sum += place * pow(10, exponent: tens)
+        }
+        tens++
+    }
+    return sum
+}
+
+calculateResponse([0,0])
+
+calculateResponse([1,1,4])
 
 

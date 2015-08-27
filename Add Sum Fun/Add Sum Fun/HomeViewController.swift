@@ -34,5 +34,9 @@ class HomeViewController: UIViewController {
             break
         }
     }
+    
+    @IBAction func unwindForMainMenu(segue: UIStoryboardSegue) {
+        navigationController?.popToRootViewControllerAnimated(true)
+    }
 
 }

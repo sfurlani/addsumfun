@@ -25,6 +25,8 @@
 		75F06E5A1B8E87BB00F154C4 /* SymbolView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 75F06E591B8E87BB00F154C4 /* SymbolView.xib */; settings = {ASSET_TAGS = (); }; };
 		75F06E5C1B8E90AE00F154C4 /* PlayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75F06E5B1B8E90AE00F154C4 /* PlayViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		75F06E5E1B8EACA200F154C4 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75F06E5D1B8EACA200F154C4 /* HomeViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		75F06E611B8EB9D900F154C4 /* ContainerTransitionSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75F06E601B8EB9D900F154C4 /* ContainerTransitionSegue.swift */; settings = {ASSET_TAGS = (); }; };
+		75F06E631B8EC51300F154C4 /* ResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75F06E621B8EC51300F154C4 /* ResultsViewController.swift */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,6 +71,8 @@
 		75F06E591B8E87BB00F154C4 /* SymbolView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SymbolView.xib; sourceTree = "<group>"; };
 		75F06E5B1B8E90AE00F154C4 /* PlayViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayViewController.swift; sourceTree = "<group>"; };
 		75F06E5D1B8EACA200F154C4 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		75F06E601B8EB9D900F154C4 /* ContainerTransitionSegue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContainerTransitionSegue.swift; sourceTree = "<group>"; };
+		75F06E621B8EC51300F154C4 /* ResultsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,6 +123,7 @@
 		756668241B8E18F70030FA71 /* Add Sum Fun */ = {
 			isa = PBXGroup;
 			children = (
+				75F06E5F1B8EB9B700F154C4 /* Segues */,
 				75F06E431B8E2E4200F154C4 /* Int+Extension.swift */,
 				75F06E4E1B8E476F00F154C4 /* ViewControllers */,
 				75F06E4B1B8E3ED800F154C4 /* Views */,
@@ -178,8 +183,17 @@
 				75F06E4F1B8E478100F154C4 /* NumbersViewController.swift */,
 				75F06E551B8E5CC600F154C4 /* EquationViewController.swift */,
 				75F06E5B1B8E90AE00F154C4 /* PlayViewController.swift */,
+				75F06E621B8EC51300F154C4 /* ResultsViewController.swift */,
 			);
 			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		75F06E5F1B8EB9B700F154C4 /* Segues */ = {
+			isa = PBXGroup;
+			children = (
+				75F06E601B8EB9D900F154C4 /* ContainerTransitionSegue.swift */,
+			);
+			name = Segues;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -322,7 +336,9 @@
 				75F06E4A1B8E39FA00F154C4 /* Game.swift in Sources */,
 				75F06E581B8E86D200F154C4 /* SymbolView.swift in Sources */,
 				75F06E441B8E2E4200F154C4 /* Int+Extension.swift in Sources */,
+				75F06E611B8EB9D900F154C4 /* ContainerTransitionSegue.swift in Sources */,
 				75F06E461B8E2E8200F154C4 /* Answers.swift in Sources */,
+				75F06E631B8EC51300F154C4 /* ResultsViewController.swift in Sources */,
 				756668261B8E18F80030FA71 /* AppDelegate.swift in Sources */,
 				75F06E5E1B8EACA200F154C4 /* HomeViewController.swift in Sources */,
 			);

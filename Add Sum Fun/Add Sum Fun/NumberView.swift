@@ -10,7 +10,7 @@ import UIKit
 
 class NumberView: UIView {
     
-    class func newWithNumber(number: Int?) -> NumberView? {
+    class func newWithNumber(number: UInt?) -> NumberView? {
         let nib = UINib(nibName: "NumberView", bundle: nil)
         
         let views = nib.instantiateWithOwner(nil, options: nil)
@@ -33,7 +33,7 @@ class NumberView: UIView {
         }
     }
     
-    @IBInspectable var number: Int? {
+    @IBInspectable var number: UInt? {
         didSet {
             update()
         }

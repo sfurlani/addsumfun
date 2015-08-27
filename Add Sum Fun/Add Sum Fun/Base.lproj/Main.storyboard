@@ -109,6 +109,7 @@
                         <outlet property="numberContainer" destination="L6h-cs-t1N" id="930-wF-g2k"/>
                         <outlet property="panGesture" destination="6y8-YY-VX8" id="0zp-yy-nWL"/>
                         <segue destination="Cjy-W4-Jsd" kind="show" identifier="showResults" id="X6y-no-gvb"/>
+                        <segue destination="Ud7-n5-NfJ" kind="custom" identifier="showVertical" customClass="ContainerTransitionSegue" customModule="Add_Sum_Fun" customModuleProvider="target" id="yHz-j8-Eln"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AvZ-wU-3Vq" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -118,27 +119,96 @@
                     </connections>
                 </panGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="2300" y="478"/>
+            <point key="canvasLocation" x="2334" y="478"/>
         </scene>
-        <!--Table View Controller-->
+        <!--Results View Controller-->
         <scene sceneID="iYc-Tv-iRm">
             <objects>
-                <tableViewController id="Cjy-W4-Jsd" sceneMemberID="viewController">
+                <tableViewController id="Cjy-W4-Jsd" customClass="ResultsViewController" customModule="Add_Sum_Fun" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="pJH-1W-ryJ">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <view key="tableFooterView" contentMode="scaleToFill" id="XhJ-5r-yni">
+                            <rect key="frame" x="0.0" y="72" width="600" height="121"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <subviews>
+                                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="32" translatesAutoresizingMaskIntoConstraints="NO" id="3vr-NF-PVc">
+                                    <rect key="frame" x="16" y="16" width="568" height="89"/>
+                                    <subviews>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WcH-lh-bCe">
+                                            <rect key="frame" x="0.0" y="0.0" width="268" height="89"/>
+                                            <animations/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="32"/>
+                                            <state key="normal" title="Main Menu">
+                                                <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                            </state>
+                                            <connections>
+                                                <action selector="returnToMainMenu:" destination="Cjy-W4-Jsd" eventType="touchUpInside" id="ms6-wX-uNS"/>
+                                                <segue destination="mV1-5h-hcb" kind="unwind" identifier="unwindMainMenu" unwindAction="unwindForMainMenu:" id="lPV-mc-OYk"/>
+                                            </connections>
+                                        </button>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e4t-KF-Kuu">
+                                            <rect key="frame" x="300" y="0.0" width="268" height="89"/>
+                                            <animations/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="32"/>
+                                            <state key="normal" title="New Game">
+                                                <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                            </state>
+                                            <connections>
+                                                <action selector="startNewGame:" destination="Cjy-W4-Jsd" eventType="touchUpInside" id="t08-4I-Nf2"/>
+                                                <segue destination="mV1-5h-hcb" kind="unwind" identifier="unwindNewGame" unwindAction="unwindForNewGame:" id="jo0-oZ-A8A"/>
+                                            </connections>
+                                        </button>
+                                    </subviews>
+                                    <animations/>
+                                </stackView>
+                            </subviews>
+                            <animations/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstItem="3vr-NF-PVc" firstAttribute="top" secondItem="XhJ-5r-yni" secondAttribute="top" constant="16" id="PwR-Xv-Iqq"/>
+                                <constraint firstAttribute="bottom" secondItem="3vr-NF-PVc" secondAttribute="bottom" constant="16" id="epU-hy-TSV"/>
+                                <constraint firstItem="3vr-NF-PVc" firstAttribute="leading" secondItem="XhJ-5r-yni" secondAttribute="leading" constant="16" id="qo5-Xp-F32"/>
+                                <constraint firstAttribute="trailing" secondItem="3vr-NF-PVc" secondAttribute="trailing" constant="16" id="vCq-7n-ae8"/>
+                            </constraints>
+                        </view>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="resultCell" id="5IM-KO-bj0">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="answerCell" textLabel="4YI-ub-XPT" detailTextLabel="O2T-nW-V7a" imageView="rle-Y9-2tC" style="IBUITableViewCellStyleValue1" id="5IM-KO-bj0">
                                 <rect key="frame" x="0.0" y="28" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="5IM-KO-bj0" id="Axa-Fc-jeu">
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="4YI-ub-XPT">
+                                            <rect key="frame" x="60" y="2" width="61" height="39"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <animations/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="32"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="O2T-nW-V7a">
+                                            <rect key="frame" x="514" y="6" width="71" height="34"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <animations/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="28"/>
+                                            <color key="textColor" red="0.55686274509803924" green="0.55686274509803924" blue="0.57647058823529407" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" image="correct" id="rle-Y9-2tC">
+                                            <rect key="frame" x="15" y="6" width="30" height="30"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <animations/>
+                                            <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                        </imageView>
+                                    </subviews>
                                     <animations/>
                                 </tableViewCellContentView>
                                 <animations/>
+                                <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -146,10 +216,15 @@
                             <outlet property="delegate" destination="Cjy-W4-Jsd" id="IRH-RA-DYU"/>
                         </connections>
                     </tableView>
+                    <connections>
+                        <outlet property="mainMenu" destination="WcH-lh-bCe" id="3MT-58-aGo"/>
+                        <outlet property="newGame" destination="e4t-KF-Kuu" id="aNv-wy-NFJ"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TL0-oM-UTY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="mV1-5h-hcb" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="3153" y="478"/>
+            <point key="canvasLocation" x="3243" y="478"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="3kw-V5-wbY">
@@ -208,7 +283,11 @@
         <!--Equation - V-->
         <scene sceneID="U6Y-za-g54">
             <objects>
-                <viewController title="Equation - V" id="Ud7-n5-NfJ" customClass="EquationViewController" customModule="Add_Sum_Fun" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="equationVertical" title="Equation - V" id="Ud7-n5-NfJ" customClass="EquationViewController" customModule="Add_Sum_Fun" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="vNV-5S-NdY"/>
+                        <viewControllerLayoutGuide type="bottom" id="Uwd-eq-Tbp"/>
+                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="1lL-nA-eXl">
                         <rect key="frame" x="0.0" y="0.0" width="560" height="484"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -320,4 +399,10 @@
             <point key="canvasLocation" x="2740" y="1290"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="correct" width="30" height="30"/>
+    </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="FF6-Ho-Jn9"/>
+    </inferredMetricsTieBreakers>
 </document>
